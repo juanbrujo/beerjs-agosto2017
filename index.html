@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title></title>
@@ -8,38 +8,81 @@
         body {
             font-family: 'Source Sans Pro', sans-serif;
             text-align: center;
+            font-size: 1.6em;
         }
-        #app > div {
+        .box {
             margin: 50px;
             border-bottom: 2px solid #ccc;
             padding-bottom: 50px;
+            height: 100vh;
+            position: relative;
+        }
+        .intro {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .box canvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
         }
     </style>
 </head>
 <body>
-    <h1>Resultado Encuesta Sueldos WebDev</h1>
-    <h2>Julio 2017</h2>
-    <p><a href="https://juanbrujo.typeform.com/to/N2dXZF">Link encuesta</a></p>
-    <p>Total: 66 respuestas</p>
+    <div class="box intro">
+        <h1>Resultado Encuesta Sueldos WebDev</h1>
+        <h2>Julio 2017</h2>
+        <p><a href="https://juanbrujo.typeform.com/to/N2dXZF">Link encuesta</a></p>
+        <p>Total: 66 respuestas</p>
+    </div>
     <div id="app">
-        1. ¿Cuál es tu género?
-        <chartjs-pie :labels="['Hombre','Mujer']" :data="[59,7]"></chartjs-pie>
-        2. ¿Cuál es tu rango de edad?
-        <chartjs-pie :labels="['18 a 24','25 a 34','35 a 44']" :data="[7,55,4]"></chartjs-pie>
-        3. ¿Cuál es el máximo nivel educacional que lograste?
-        <chartjs-pie :labels="['Universitario, incompleto','Universitario, completo','Universitario, postgrado','Técnico, completo']" :data="[10,47,1,8]"></chartjs-pie>
-        4. ¿Dominas otro idioma hablado/escrito que el español?
-        <chartjs-pie :labels="['Si','No']" :data="[42,24]"></chartjs-pie>
-        5. ¿Hace cuántos años estás trabajando?
-        <chartjs-pie :labels="['2 años a 5 años','1 año','más de 11 años','6 años a 10 años']" :data="[30,6,10,20]"></chartjs-pie>
-        6. ¿Cuáles son las funciones que realizas?
-        <chartjs-bar :labels="['Diseñador Gráfico','Diseñador Web','Desarrollador Front-End','Desarrollador Back-End','Devops, SysAdmin','QA','CTO/CEO/CFO/COO','Desarrollador Mobile']" :data="[5,45,37,10,11,2,2,3]"></chartjs-bar>
-        7. ¿Cuál es tu nivel de ingreso liquido mensual?
-        <chartjs-pie :labels="['Entre $1.001.000 a $1.500.000','Entre $501.000 a $800.000','Entre $2.501.000 y más','Entre $1.801.000 a $2.000.000','Entre $801.000 a $1.000.000','Bajo $500.000','']" :data="[25,5,2,7,15,2]"></chartjs-pie>
+        <div class="box">
+            1. ¿Cuál es tu género?
+            <chartjs-pie :labels="['Hombre','Mujer']" :data="[59,7]"></chartjs-pie>
+        </div>
+        <div class="box">
+            2. ¿Cuál es tu rango de edad?
+            <chartjs-pie :labels="['18 a 24','25 a 34','35 a 44']" :data="[7,55,4]"></chartjs-pie>
+        </div>
+         <div class="box">
+            3. ¿Cuál es el máximo nivel educacional que lograste?
+            <chartjs-pie :labels="['Universitario, incompleto','Universitario, completo','Universitario, postgrado','Técnico, completo']" :data="[10,47,1,8]"></chartjs-pie>
+        </div>
+        <div class="box">
+            4. ¿Dominas otro idioma hablado/escrito que el español?
+            <chartjs-pie :labels="['Si','No']" :data="[42,24]"></chartjs-pie>
+        </div>
+        <div class="box">
+            5. ¿Hace cuántos años estás trabajando?
+            <chartjs-pie :labels="['2 años a 5 años','1 año','más de 11 años','6 años a 10 años']" :data="[30,6,10,20]"></chartjs-pie>
+        </div>
+        <div class="box">
+            6. ¿Cuáles son las funciones que realizas?
+            <chartjs-bar :labels="['Diseñador Gráfico','Diseñador Web','Desarrollador Front-End','Desarrollador Back-End','Devops, SysAdmin','QA','CTO/CEO/CFO/COO','Desarrollador Mobile']" :data="[5,45,37,10,11,2,2,3]"></chartjs-bar>
+        </div>
+        <div class="box">
+            7. ¿Cuál es tu nivel de ingreso liquido mensual?
+            <chartjs-pie :labels="['Entre $1.001.000 a $1.500.000','Entre $501.000 a $800.000','Entre $2.501.000 y más','Entre $1.801.000 a $2.000.000','Entre $801.000 a $1.000.000','Bajo $500.000','']" :data="[25,5,2,7,15,2]"></chartjs-pie>
+        </div>
+        <div class="box">
+            Entre $2.501.000 y más: 2
+            <chartjs-bar :labels="['Hombre', 'Universitario completo', '25 a 34', 'Otro idioma', 'más de 11 años', '6 años a 10 años', 'Desarrollador Front-End / CTO/CEO/CFO/COO', 'Desarrollador Back-End']" :data="[2,2,2,2,1,1,1,1]"></chartjs-bar>
+        </div>
+        <div class="box">
+            Bajo $500.000: 2
+            <chartjs-bar :labels="['Hombre', 'Mujer', '18 a 24', '25 a 34', 'Universitario incompleto', 'Universitario completo', '¿Dominas otro idioma?', '1 año', '6 años a 10 años', 'Diseñador Gráfico', 'Diseñador Web', 'Desarrollador Front-End']" :data="[1,1,1,1,1,1,1,1,1,1,2,2]"></chartjs-bar>
+        </div>
+        <div class="box">
+            Entre $1.001.000 a $1.500.000: 25
+            <chartjs-bar :labels="['Hombre', 'Mujer', '25 a 34', '18 a 24', '35 a 44', '¿Dominas otro idioma?', 'Diseñador Gráfico', 'Diseñador Web', 'Desarrollador Front-End', 'Desarrollador Back-End', 'Devops', 'SysAdmin']" :data="[22,3,21,2,2,16,2,5,17,15,5,6]"></chartjs-bar>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.js"></script>
-    <script src="vue-charts.js"></script>
+    <script src="https://cdn.rawgit.com/hchstera/vue-charts/433c747f/dist/vue-charts.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.min.js"></script>
     <script>
         Vue.use(VueCharts);
